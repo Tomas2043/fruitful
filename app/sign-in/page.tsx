@@ -1,8 +1,8 @@
 "use client"
 
-import { ArrowRight, Carrot, Loader2, X } from "lucide-react";
+import { Carrot, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
 	Card,
 	CardContent,
@@ -19,7 +19,6 @@ import { useForm } from "react-hook-form";
 import {
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -65,12 +64,12 @@ export default function SignIn() {
 		<div className="grid min-h-svh lg:grid-cols-2 p-4">
 			<div className="flex flex-col gap-4 p-6 md:p-10">
 				<div className="flex justify-center gap-2 md:justify-start">
-					<a href="/" className="flex items-center gap-2 font-medium">
+					<Link href="/" className="flex items-center gap-2 font-medium">
 						<div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
 							<Carrot className="size-4" />
 						</div>
 						Fruitful
-					</a>
+					</Link>
 				</div>
 				<div className="flex flex-1 items-center justify-center">
 					<div className="w-full max-w-md pb-10">
@@ -145,13 +144,4 @@ export default function SignIn() {
 			</div>
 		</div>
 	)
-}
-
-async function convertImageToBase64(file: File): Promise<string> {
-	return new Promise((resolve, reject) => {
-		const reader = new FileReader();
-		reader.onloadend = () => resolve(reader.result as string);
-		reader.onerror = reject;
-		reader.readAsDataURL(file);
-	});
 }

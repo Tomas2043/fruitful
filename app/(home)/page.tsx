@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { auth } from "@/lib/auth";
 import { Check, ChevronRight, FolderGit2, LayoutDashboard, ScrollText } from "lucide-react";
 import { headers } from "next/headers";

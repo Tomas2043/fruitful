@@ -18,7 +18,6 @@ import {
 import { NavMain } from "@/components/sidebar/nav-main"
 import { NavProjects } from "@/components/sidebar/nav-projects"
 import { NavUser } from "@/components/sidebar/nav-user"
-import { TeamSwitcher } from "@/components/sidebar/team-switcher"
 import {
 	Sidebar,
 	SidebarContent,
@@ -161,6 +160,7 @@ const data = {
 }
 
 export function AppSidebar({ currentUser, ...props }: { currentUser: User } & React.ComponentProps<typeof Sidebar>) {
+	console.log(currentUser);
 	return (
 		<Sidebar collapsible="icon" {...props}>
 			<SidebarHeader>

@@ -33,7 +33,6 @@ export default async function Dashboard() {
 
 	const today = new Date();
 	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	const currentDay = today.getDay();
 
 	const weekDates = Array.from({ length: 7 }, (_, i) => {
@@ -58,7 +57,7 @@ export default async function Dashboard() {
 			</header>
 			<section className="pt-8">
 				<div className="flex justify-between items-center">
-					<h1 className="text-2xl font-semibold tracking-tight">Today's summary</h1>
+					<h1 className="text-2xl font-semibold tracking-tight">Today&apos;s summary</h1>
 					<Button className="h-9">Calendar</Button>
 				</div>
 				<div className="flex gap-4">
@@ -217,7 +216,7 @@ export default async function Dashboard() {
                       {/* Meals Card */}
                       <Card>
                         <CardHeader>
-                          <CardTitle>Today's Meals</CardTitle>
+                          <CardTitle>Today&apos;s Meals</CardTitle>
                           <CardDescription>
                             Track your food intake for {date.day}, {date.date} {date.month}
                           </CardDescription>

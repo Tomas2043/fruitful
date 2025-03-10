@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
