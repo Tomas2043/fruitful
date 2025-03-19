@@ -6,8 +6,8 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Activity, BarChart2, CalendarIcon, ChevronLeft, ChevronRight, Clock, Droplets, Scale, TrendingUp, Utensils } from "lucide-react";
+import { TabsContent } from "@/components/ui/tabs"
+import { Activity, BarChart2, Clock, Droplets, Scale, TrendingUp, Utensils } from "lucide-react";
 import { Progress } from "./ui/progress";
 
 type WeekDate = {

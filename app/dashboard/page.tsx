@@ -1,19 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth"
 import { User } from "better-auth";
-import { Activity, BarChart2, CalendarDays, CalendarIcon, ChevronLeft, ChevronRight, Clock, Droplets, Scale, TrendingUp, Utensils } from "lucide-react";
+import { CalendarDays, CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import DashboardTab from "@/components/dashboard-tab";
 
 export default async function Dashboard() {
