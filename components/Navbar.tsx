@@ -13,12 +13,12 @@ export default async function Navbar() {
 
 	return (
 		<header className="flex justify-between items-center fixed p-6 2xl:px-56 xl:px-32 lg:px-16 md:px-8 sm:px-4 px-4 w-full backdrop-blur-3xl">
-			<Link href="/" className="flex items-center gap-2 font-medium">
+			<a href="/" className="flex items-center gap-2 font-medium">
 				<div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
 					<Carrot className="size-4" />
 				</div>
 				Fruitful
-			</Link>
+			</a>
 			<div className="flex gap-4">
 				<NavLink href={"#"}>Features</NavLink>
 				<NavLink href={"#"}>How it works</NavLink>

@@ -15,6 +15,7 @@ datasource db {
 
 model User {
   id            String    @id @default(cuid())
+  // User information
   firstName     String?
   lastName      String?
   email         String?   @unique
@@ -24,10 +25,104 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   name          String
+
+	// Auth relations
   sessions      Session[]
   accounts      Account[]
 
+  // User goals/settings
+  calorieGoal 	Int   		@default(2000)
+  stepGoal    	Int   		@default(10000)
+  waterGoal   	Int 			@default(8) // cups of water
+	targetWeight 	Float?
+	startWeight		Float?
+
+	// Relations
+	nutritionLogs NutritionLogs[]
+	activityLogs  ActivityLogs[]
+	waterLogs     WaterLogs[]
+	weightLogs    WeightLogs[]
+	meals         Meal[]
+	exercises     Exercise[]
+
   @@map("user")
+}
+
+model NutritionLogs {
+	id						String		@id @default(cuid())
+	date					DateTime
+	userId				String
+	user					User			@relation(fields: [userId], references: [id], onDelete: Cascade)
+	calories			Int
+	carbs					Float
+	protein				Float
+	fat						Float
+
+	@@index([userId, date]) // Index for querying by user and date
+	@@unique([userId, date]) // One log per day
+}
+
+model ActivityLogs {
+	id						String		@id @default(cuid())
+	date					DateTime
+	userId				String
+	user					User			@relation(fields: [userId], references: [id], onDelete: Cascade)
+	steps					Int
+	distance			Float
+	floors				Int
+	activeMinutes	Int
+
+	@@index([userId, date]) // Index for querying by user and date
+	@@unique([userId, date]) // One log per day
+}
+
+model WaterLogs {
+	id						String		@id @default(cuid())
+	date					DateTime
+	userId				String
+	user					User			@relation(fields: [userId], references: [id], onDelete: Cascade)
+	cups					Int
+
+	@@index([userId, date]) // Index for querying by user and date
+	@@unique([userId, date]) // One log per day
+}
+
+model WeightLogs {
+	id						String		@id @default(cuid())
+	date					DateTime
+	userId				String
+	user					User			@relation(fields: [userId], references: [id], onDelete: Cascade)
+	weight				Float
+
+	@@index([userId, date]) // Index for querying by user and date
+	@@unique([userId, date]) // One log per day
+}
+
+model Meal {
+	id						String		@id @default(cuid())
+	userId				String
+	user					User			@relation(fields: [userId], references: [id], onDelete: Cascade)
+	date					DateTime
+	mealType			MealType
+	name					String
+	description		String?
+	calories			Int
+
+	@@index([userId, date]) // Index for querying by user and date
+}
+
+model Exercise {
+	id						String		@id @default(cuid())
+	userId					String
+	user					User			@relation(fields: [userId], references: [id], onDelete: Cascade)
+	date					DateTime
+	name					String
+	description		String?
+	duration			Int
+	distance			Float?
+	calories			Int
+	
+	@@index([userId, date]) // Index for querying by user and date
 }
 
 model Session {
@@ -73,4 +168,11 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+enum MealType {
+	BREAKFAST
+	LUNCH
+	DINNER
+	SNACK
 }

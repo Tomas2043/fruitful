@@ -15,7 +15,7 @@ export default async function Home() {
 			<section className="w-full h-screen flex justify-between gap-4 items-center">
 				<div className="grid grid-cols-1 gap-4 w-full">
 					<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-						Track calories, <br /> achieve your {" "}
+						Track calories. <br />Achieve your {" "}
 						<span className="relative inline-block">
 							health
 							<svg
